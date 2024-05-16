@@ -45,6 +45,22 @@
 }
 
 .Dayschedule {
-  
     justify-content: space-between;
 }
+
+.Dayschedule h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #666;
+  }
+  
+  .Bandtid {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .Bandtid a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  

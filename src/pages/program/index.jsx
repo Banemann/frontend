@@ -71,10 +71,10 @@ function BandProgram() {
                 <div key={day}>
                   <h3>{danskeUgedage[day]}</h3>
                   {slots.map((slot, i) => (
-                    <p key={i}>
+                    <p className={styles.Bandtid} key={i}>
                       {slot.start} - {slot.end}:{' '}
                       {translateSlot(slot.act) !== 'Pause' ? (
-                        <Link href={`/bands/${encodeURIComponent(slot.act)}`}>
+                        <Link href={`/band/${encodeURIComponent(slot.act)}`}>
                           {translateSlot(slot.act)}
                         </Link>
                       ) : (

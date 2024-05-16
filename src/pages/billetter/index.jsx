@@ -4,6 +4,7 @@ import Header from "../../app/components/Header";
 import { useRouter } from "next/router";
 
 
+
 function Booking() {
   return (
     <main>
@@ -14,5 +15,6 @@ function Booking() {
     </main>
   );
 }
+
 
 export default Booking;
