@@ -1,6 +1,25 @@
 .contentContainer {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 35s ease infinite;
+  height: 100vh;
+}
+
+.contentBox {
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  max-width: 1275px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .navList {

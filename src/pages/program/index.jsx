@@ -1,66 +1,70 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Program.module.css';
-import Header from '../../app/components/Header';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import styles from "./Program.module.css";
+import Header from "../../app/components/Header";
+import Footer from "../../app/components/Footer";
+import Link from "next/link";
 
 function BandProgram() {
   const [schedule, setSchedule] = useState({});
-  const [filterScene, setFilterScene] = useState('');
+  const [filterScene, setFilterScene] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchSchedule() {
       try {
-        const response = await fetch('http://localhost:8080/schedule');
+        const response = await fetch("http://localhost:8080/schedule");
         if (!response.ok) {
-          throw new Error('Failed to fetch schedule');
+          throw new Error("Failed to fetch schedule");
         }
         const data = await response.json();
         setSchedule(data);
+        setLoading(false);
       } catch (error) {
-        console.error('Error fetching schedule:', error);
+        console.error("Error fetching schedule:", error);
+        setError(error.message);
+        setLoading(false);
       }
     }
     fetchSchedule();
   }, []);
 
-  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   const danskeUgedage = {
-    mon: 'Mandag',
-    tue: 'Tirsdag',
-    wed: 'Onsdag',
-    thu: 'Torsdag',
-    fri: 'Fredag',
-    sat: 'Lørdag',
-    sun: 'Søndag',
-  };
-
-  
-  const translateSlot = slot => {
-    return slot === 'break' ? 'Pause' : slot;
+    mon: "Mandag",
+    tue: "Tirsdag",
+    wed: "Onsdag",
+    thu: "Torsdag",
+    fri: "Fredag",
+    sat: "Lørdag",
+    sun: "Søndag",
   };
 
   const scenes = [...new Set(Object.keys(schedule))];
-
   const filteredSchedule = Object.entries(schedule)
     .filter(([stage]) => stage === (filterScene || scenes[0]))
     .sort(([stageA], [stageB]) => stageA.localeCompare(stageB));
 
   return (
-    <main>
+    <main className={styles.contentContainer}>
       <Header />
       <div className={styles.Contentbox}>
         <div className={styles.Filterbox}>
           <div>
-            {scenes.map(scene => (
+            {scenes.map((scene) => (
               <h2 key={scene} onClick={() => setFilterScene(scene)}>
                 {scene}
               </h2>
             ))}
           </div>
         </div>
-
         {filteredSchedule.map(([stage, days]) => (
           <div className={styles.Sceneprogrambox} key={stage}>
             <div className={styles.Sceneh2}>
@@ -68,26 +72,34 @@ function BandProgram() {
             </div>
             <div className={styles.Dayschedule}>
               {Object.entries(days).map(([day, slots]) => (
-                <div key={day}>
+                <div className={styles.aWidth} key={day}>
                   <h3>{danskeUgedage[day]}</h3>
-                  {slots.map((slot, i) => (
-                    <p className={styles.Bandtid} key={i}>
-                      {slot.start} - {slot.end}:{' '}
-                      {translateSlot(slot.act) !== 'Pause' ? (
-                        <Link href={`/band/${encodeURIComponent(slot.act)}`}>
-                          {translateSlot(slot.act)}
-                        </Link>
-                      ) : (
-                        translateSlot(slot.act)
-                      )}
-                    </p>
-                  ))}
+                  {slots
+                    .filter((slot) => slot.act !== "break")
+                    .map((slot, i) => (
+                      <Link className={styles.linkA}
+                        href={`/bands/${encodeURIComponent(
+                          slot.act.replace(/ /g, "-")
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={i}
+                      >
+                        <div className={styles.Bandtid}>
+                          <p>
+                            {slot.start} - {slot.end}
+                          </p>{" "}
+                          <p>{slot.act}</p>
+                        </div>
+                      </Link>
+                    ))}
                 </div>
               ))}
             </div>
           </div>
         ))}
       </div>
+      <Footer />
     </main>
   );
 }

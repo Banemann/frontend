@@ -1,0 +1,22 @@
+
+
+  .contentBox {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1275px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .leftContent {
+    width: 50%;
+  }
+  
+  .rightContent {
+    width: 50%;
+  }
+  
+  .logoContainer {
+    margin-bottom: 20px;
+  }
+  

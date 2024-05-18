@@ -1,13 +1,14 @@
-// Home.jsx
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main>
-      <div className={styles.contentContainer}>
+    <main className={styles.contentContainer}>
+      <Header/>
+      <div className={styles.contentBox}>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li className={styles.link}>
@@ -29,6 +30,7 @@ export default function Home() {
           </ul>
         </nav>
       </div>
+      <Footer/>
     </main>
   );
 }

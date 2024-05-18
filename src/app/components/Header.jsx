@@ -4,28 +4,33 @@ import styles from './Header.module.css';
 
 const Header = () => {
   return (
-    <main className={styles.header}>
-      <nav className={styles.nav}>
-        <ul className={styles.navList}>
-          <li className={styles.link}>
-            <Link prefetch={false} href="/">
-              <Image src="/diversa.svg" alt="Logo" className={styles.logo} width={100} height={100} priority />
-            </Link>
-          </li>
-          <li className={styles.link}>
-            <Link prefetch={false} className={styles.link} href="/program">
-              Program
-            </Link>
-          </li>
-          <li className={styles.link}>
-            <Link prefetch={false} className={styles.link} href="/billetter">
-              Billetter
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </main>
+    <header className={styles.header}>
+      <div className={styles.navContainer}>
+       <Link className={styles.logo} href="/" passHref>
+          <Image src="/logos/terminalist.jpg" alt="Logo" width={50} height={50} />
+      </Link>
+        <nav className={styles.nav}>
+          <ul className={styles.navList}>
+            <li className={styles.link}>
+              <Link prefetch={false} href="/program">
+                Program
+              </Link>
+            </li>
+            <li className={styles.link}>
+              <Link prefetch={false} href="/billetter">
+                Billetter
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
 export default Header;
+
+
+
+
+ 
