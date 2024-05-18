@@ -19,13 +19,11 @@ function Booking() {
 
   const handleTicketSubmit = (e) => {
     e.preventDefault();
-    // Show camping options once tickets are selected
     setShowCampingOptions(true);
   };
-
+  
   const handleCampingOptionSubmit = (e) => {
     e.preventDefault();
-    // Perform any necessary actions, such as redirecting to the next step
     router.push("/next-step");
   };
 
@@ -69,7 +67,7 @@ function Booking() {
       {showCampingOptions && (
         <form className={styles.formBox} onSubmit={handleCampingOptionSubmit}>
           <h2>Vælg telt</h2>
-          {/* Include camping options inputs here */}
+          {/* Valgmuligheder */}
           <button type="submit" className={styles.nextBtn}>OK</button>
         </form>
       )}
