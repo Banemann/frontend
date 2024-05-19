@@ -1,47 +1,85 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import styles from './Personalinfo.module.css';
+import React, { useState } from "react";
+import styles from "./Personalinfo.module.css";
+import Header from "../../app/components/Header";
+import { useRouter } from "next/router";
 
-function PersonalInfo() {
+function Checkout() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  });
   const router = useRouter();
-  const { area, tickets } = router.query;
-  const [info, setInfo] = useState(Array(Number(tickets)).fill({ name: '', email: '' }));
 
-  const handleChange = (index, field, value) => {
-    const newInfo = [];
-    newInfo[index][field] = value;
-    setInfo(newInfo);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    router.push("/confirmation"); 
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Personal Info for {area}</h1>
-      {info.map((ticket, index) => (
-        <div key={index} className={styles.form}>
-          <h2 className={styles.subtitle}>Ticket {index + 1}</h2>
-          <input
-            type="text"
-            placeholder="Name"
-            value={ticket.name}
-            onChange={e => handleChange(index, 'name', e.target.value)}
-            className={styles.input}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={ticket.email}
-            onChange={e => handleChange(index, 'email', e.target.value)}
-            className={styles.input}
-          />
+    <main>
+      <Header />
+      <form className={styles.formBox} onSubmit={handleSubmit}>
+        <h1>Personal Information</h1>
+        <div>
+          <label>
+            First Name:
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
+          </label>
         </div>
-      ))}
-      <button onClick={handleSubmit} className={styles.button}>Submit</button>
-    </div>
+        <div>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Phone:
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <button type="submit" className={styles.nextBtn}>Submit</button>
+      </form>
+    </main>
   );
 }
 
-export default PersonalInfo;
+export default Checkout;
