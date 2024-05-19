@@ -11,6 +11,7 @@ function Booking() {
   const [greenCamping, setGreenCamping] = useState(false);
   const [tents, setTents] = useState({ twoPerson: 0, threePerson: 0 });
   const router = useRouter();
+  const [selectedSpotIndex, setSelectedSpotIndex] = useState(null);
 
   useEffect(() => {
     const fetchAvailableSpots = async () => {
@@ -47,8 +48,9 @@ function Booking() {
     setTents((prev) => ({ ...prev, [name]: Number(value) }));
   };
 
-  const handleSpotChange = (e) => {
-    setSelectedSpot(e.target.value);
+  const handleSpotChange = (index) => {
+    setSelectedSpotIndex(index);
+    setSelectedSpot(availableSpots[index].area);
   };
 
   const handleSubmit = async (e) => {
@@ -70,7 +72,7 @@ function Booking() {
         if (response.ok) {
           const data = await response.json();
           console.log("Reservation ID:", data.id);
-          
+
           router.push("/personalinfo");
         } else {
           console.error("Failed to reserve spot");
@@ -82,15 +84,15 @@ function Booking() {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
       <Header />
       <form className={styles.formBox} onSubmit={handleSubmit}>
-        <h1>Book billetter</h1>
+        <h1>BILLETTER</h1>
 
         <div className={styles.cardBox}>
           <div className={styles.ticketCard}>
             <h2>Normal Billet</h2>
-            <div>Pris: 799,-</div>
+            <h3>799 kr</h3>
             <input
               className={styles.ticketCounter}
               type="number"
@@ -104,7 +106,7 @@ function Booking() {
 
           <div className={styles.ticketCard}>
             <h2>VIP Billet</h2>
-            <div>Pris: 1299,-</div>
+            <h3>1299 kr</h3>
             <input
               className={styles.ticketCounter}
               type="number"
@@ -118,6 +120,34 @@ function Booking() {
         </div>
 
         <div className={styles.campingOptions}>
+          <h2>Camping område</h2>
+          <div className={styles.campingAreabox}>
+            {availableSpots.map((spot, index) => (
+              
+              <label
+                key={spot.area}
+                className={`${styles.campingAreaCard} ${
+                  selectedSpotIndex === index ? styles.selected : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="selectedSpot"
+                  value={spot.area}
+                  checked={selectedSpot === spot.area}
+                  onChange={() => handleSpotChange(index)}
+                  style={{ display: "none" }}/>
+                
+                {spot.area}
+                <p className={styles.spotsLeft}>
+                  {spot.available < 15
+                    ? `(${spot.available} pladser)`
+                    : null}
+                </p>
+              </label>
+            ))}
+          </div>
+
           <h2>Camping Options</h2>
           <label>
             <input
@@ -126,11 +156,11 @@ function Booking() {
               checked={greenCamping}
               onChange={handleGreenCampingChange}
             />
-            Green Camping Option (249,-)
+            Grøn Camping (249,-)
           </label>
           <div>
             <label>
-              2 Person Tent (299,- each)
+              2 Personers Telt (299,-)
               <input
                 type="number"
                 name="twoPerson"
@@ -142,7 +172,7 @@ function Booking() {
           </div>
           <div>
             <label>
-              3 Person Tent (399,- each)
+              3 Personers Telt (399,-)
               <input
                 type="number"
                 name="threePerson"
@@ -152,19 +182,11 @@ function Booking() {
               />
             </label>
           </div>
-
-          <h2>Available Camping Spots</h2>
-          <select value={selectedSpot} onChange={handleSpotChange}>
-            <option value="">Select a camping spot</option>
-            {availableSpots.map((spot) => (
-              <option key={spot.area} value={spot.area}>
-                {spot.area} ({spot.remaining} spots left)
-              </option>
-            ))}
-          </select>
         </div>
 
-        <button type="submit" className={styles.nextBtn}>Næste</button>
+        <button type="submit" className={styles.nextBtn}>
+          Næste
+        </button>
       </form>
     </main>
   );
