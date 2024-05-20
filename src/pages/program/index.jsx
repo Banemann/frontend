@@ -13,7 +13,7 @@ function BandProgram() {
   useEffect(() => {
     async function fetchSchedule() {
       try {
-        const response = await fetch("http://localhost:8080/schedule");
+        const response = await fetch("https://sepia-bow-age.glitch.me/schedule");
         if (!response.ok) {
           throw new Error("Failed to fetch schedule");
         }

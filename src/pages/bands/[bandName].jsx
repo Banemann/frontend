@@ -17,7 +17,7 @@ function BandPage() {
       async function fetchBandInfo() {
         setIsLoading(true);
         try {
-          const response = await fetch(`http://localhost:8080/bands/${encodeURIComponent(bandName.replace(/ /g, '-').toLowerCase())}`);
+          const response = await fetch(`https://sepia-bow-age.glitch.me/bands/${encodeURIComponent(bandName.replace(/ /g, '-').toLowerCase())}`);
           if (!response.ok) {
             throw new Error('Failed to fetch band information');
           }

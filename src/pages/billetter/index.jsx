@@ -16,7 +16,7 @@ function Booking() {
   useEffect(() => {
     const fetchAvailableSpots = async () => {
       try {
-        const response = await fetch("http://localhost:8080/available-spots", {
+        const response = await fetch("https://sepia-bow-age.glitch.me/available-spots", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function Booking() {
 
     if (selectedSpot) {
       try {
-        const response = await fetch("http://localhost:8080/reserve-spot", {
+        const response = await fetch("https://sepia-bow-age.glitch.me/reserve-spot", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
