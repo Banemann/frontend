@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Personalinfo.module.css";
+
 import Header from "../../app/components/Header";
 import { useRouter } from "next/router";
 
