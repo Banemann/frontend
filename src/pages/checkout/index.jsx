@@ -26,7 +26,7 @@ function Checkout() {
   return (
     <main>
       <Header />
-      <form className={styles.formBox} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h1>Personal Information</h1>
         <div>
           <label>
@@ -76,7 +76,7 @@ function Checkout() {
             />
           </label>
         </div>
-        <button type="submit" className={styles.nextBtn}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </main>
   );
