@@ -14,10 +14,10 @@ const Footer = () => {
             Contact
           </Link>
           <Link href="/privacy" className={styles.footerLink}>
-            Privacy Policy
+            Program
           </Link>
           <Link href="/terms" className={styles.footerLink}>
-            Terms of Service
+            Billetter
           </Link>
         </div>
         <div className={styles.footerSocials}>
