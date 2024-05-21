@@ -126,7 +126,7 @@ function Booking() {
               
               <label
                 key={spot.area}
-                className={`${styles.campingAreaCard} ${
+                className={`${styles.campingAreaBtn} ${
                   selectedSpotIndex === index ? styles.selected : ""
                 }`}
               >
