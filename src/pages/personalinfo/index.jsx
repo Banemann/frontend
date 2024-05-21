@@ -5,7 +5,7 @@ import Header from "../../app/components/Header";
 
 function PersonalInfo() {
   const router = useRouter();
-  const { regularTickets, vipTickets } = router.query;
+  const { regularTickets, vipTickets, selectedSpot, greenCamping, twoPersonTent, threePersonTent } = router.query;
   const [formData, setFormData] = useState([]);
 
   useEffect(() => {
@@ -38,11 +38,41 @@ function PersonalInfo() {
     <main>
       <Header />
       <div className={styles.contentBox}>
-        <h1>Personlig information</h1>
-        <form className={styles.formBox} onSubmit={handleSubmit}>
+      
+        <div className={styles.orderBox}>
+          <h2>Din bestilling</h2>
+          <div className={styles.orderDetails}>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>Normal Billet:</span>
+              <span className={styles.value}>{regularTickets}</span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>VIP Billet:</span>
+              <span className={styles.value}>{vipTickets}</span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>Område:</span>
+              <span className={styles.value}>{selectedSpot}</span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>Grøn Camping:</span>
+              <span className={styles.value}>{greenCamping ? "Yes" : "No"}</span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>2 Pers. Telt:</span>
+              <span className={styles.value}>{twoPersonTent}</span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>3 Pers. Telt:</span>
+              <span className={styles.value}>{threePersonTent}</span>
+            </div>
+          </div>
+        </div>  <h1>Deltager Information</h1>
+        <form className={styles.formBoxBox} onSubmit={handleSubmit}>
+          <div className={styles.formBox}>
           {formData.map((data, index) => (
             <div className={styles.informationCard} key={index}>
-              <h2>{index + 1}. PERSON</h2>
+              <h2>Billet {index + 1}.</h2>
               <div>
                 <label>
                   Fornavn:
@@ -97,7 +127,10 @@ function PersonalInfo() {
               </div>
             </div>
           ))}
-          <button type="submit" className={styles.checkoutBtn}>Til checkout</button>
+          </div>
+            <button type="submit" className={styles.checkoutBtn}>
+              Til checkout
+            </button>
         </form>
       </div>
     </main>

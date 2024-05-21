@@ -7,8 +7,8 @@ function Checkout() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
-    phone: "",
+    cardnumber: "",
+    cvv: "",
   });
   const router = useRouter();
 
@@ -54,11 +54,11 @@ function Checkout() {
         </div>
         <div>
           <label>
-            Email:
+            Cardnumber:
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              type="text"
+              name="cardnumber"
+              value={formData.cardnumber}
               onChange={handleChange}
               required
             />
@@ -66,17 +66,17 @@ function Checkout() {
         </div>
         <div>
           <label>
-            Phone:
+            CVV:
             <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
+              type="text"
+              name="cvv"
+              value={formData.cvv}
               onChange={handleChange}
               required
             />
           </label>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">KØB</button>
       </form>
     </main>
   );

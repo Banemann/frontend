@@ -78,6 +78,10 @@ function Booking() {
             query: {
               regularTickets: regularTicketCount,
               vipTickets: vipTicketCount,
+              selectedSpot: selectedSpot,
+              greenCamping: greenCamping,
+              twoPersonTent: tents.twoPerson,
+              threePersonTent: tents.threePerson,
             },
           });
         } else {
