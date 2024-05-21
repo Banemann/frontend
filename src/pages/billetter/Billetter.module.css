@@ -68,6 +68,7 @@
 
 .campingAreaBtn:hover{
   cursor: pointer;
+  box-shadow: #525252 0px 0px 10px;
 }
 
 .selected {
