@@ -20,14 +20,14 @@ function Checkout() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    router.push("/confirmation"); 
+    router.push("/thanksbye"); 
   };
 
   return (
     <main>
       <Header />
       <form onSubmit={handleSubmit}>
-        <h1>Personal Information</h1>
+        <h1>Betalingsinformation</h1>
         <div>
           <label>
             First Name:
