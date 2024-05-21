@@ -59,11 +59,11 @@ function BandPage() {
           <div className={styles.logoContainer}>
             <Image src={`/logos/${bandInfo.logo}`} alt={bandInfo.name} width={200} height={200} />
           </div>
-          <p>Members: {bandInfo.members.join(', ')}</p>
+          <p>Members: {bandInfo.members.join(', ')}</p><p>Genre: {bandInfo.genre}</p>
         </div>
         <div className={styles.rightContent}>
           <p>{bandInfo.bio}</p>
-          <p>Genre: {bandInfo.genre}</p>
+          
         </div>
       </div>
       <Footer/>

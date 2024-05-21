@@ -101,3 +101,17 @@
 .ticketCounter {
   font-size: 1rem;
 }
+
+.campingOptionsBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.campingTelt{
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}

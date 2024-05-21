@@ -73,7 +73,13 @@ function Booking() {
           const data = await response.json();
           console.log("Reservation ID:", data.id);
 
-          router.push("/personalinfo");
+          router.push({
+            pathname: "/personalinfo",
+            query: {
+              regularTickets: regularTicketCount,
+              vipTickets: vipTicketCount,
+            },
+          });
         } else {
           console.error("Failed to reserve spot");
         }
@@ -123,7 +129,6 @@ function Booking() {
           <h2>Camping område</h2>
           <div className={styles.campingAreabox}>
             {availableSpots.map((spot, index) => (
-              
               <label
                 key={spot.area}
                 className={`${styles.campingAreaBtn} ${
@@ -136,18 +141,15 @@ function Booking() {
                   value={spot.area}
                   checked={selectedSpot === spot.area}
                   onChange={() => handleSpotChange(index)}
-                  style={{ display: "none" }}/>
-                
+                  style={{ display: "none" }}
+                />
                 {spot.area}
                 <p className={styles.spotsLeft}>
-                  {spot.available < 15
-                    ? `(${spot.available} pladser)`
-                    : null}
+                  {spot.available < 15 ? `(${spot.available} pladser)` : null}
                 </p>
               </label>
             ))}
           </div>
-
           <h2>Camping Options</h2>
           <label>
             <input
@@ -158,29 +160,31 @@ function Booking() {
             />
             Grøn Camping (249,-)
           </label>
-          <div>
-            <label>
-              2 Personers Telt (299,-)
-              <input
-                type="number"
-                name="twoPerson"
-                value={tents.twoPerson}
-                onChange={handleTentChange}
-                min="0"
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              3 Personers Telt (399,-)
-              <input
-                type="number"
-                name="threePerson"
-                value={tents.threePerson}
-                onChange={handleTentChange}
-                min="0"
-              />
-            </label>
+          <div className={styles.campingOptionsBox}>
+            <div className={styles.campingTelt}>
+              <label>
+                <p>2 Personers Telt (299,-)</p>
+                <input
+                  type="number"
+                  name="twoPerson"
+                  value={tents.twoPerson}
+                  onChange={handleTentChange}
+                  min="0"
+                />
+              </label>
+            </div>
+            <div className={styles.campingTelt}>
+              <label>
+                <p>3 Personers Telt (399,-)</p>
+                <input
+                  type="number"
+                  name="threePerson"
+                  value={tents.threePerson}
+                  onChange={handleTentChange}
+                  min="0"
+                />
+              </label>
+            </div>
           </div>
         </div>
 

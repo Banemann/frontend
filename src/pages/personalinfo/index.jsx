@@ -1,26 +1,32 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import styles from "./Personalinfo.module.css";
 import Header from "../../app/components/Header";
-import { useRouter } from "next/router";
 
-function Checkout() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-  });
+function PersonalInfo() {
   const router = useRouter();
+  const { regularTickets, vipTickets } = router.query;
+  const totalTickets = parseInt(regularTickets || 0) + parseInt(vipTickets || 0);
 
-  const handleChange = (e) => {
+  const [formData, setFormData] = useState(
+    Array.from({ length: totalTickets }, () => ({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+    }))
+  );
+
+  const handleChange = (index, e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) =>
+      prev.map((data, i) => (i === index ? { ...data, [name]: value } : data))
+    );
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    router.push("/confirmation"); 
+    router.push("/checkout");
   };
 
   return (
@@ -28,58 +34,63 @@ function Checkout() {
       <Header />
       <form className={styles.formBox} onSubmit={handleSubmit}>
         <h1>Personal Information</h1>
-        <div>
-          <label>
-            First Name:
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Last Name:
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Phone:
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-          </label>
-        </div>
+        {formData.map((data, index) => (
+          <div key={index}>
+            <h2>Billet {index + 1}.</h2>
+            <div>
+              <label>
+                Fornavn:
+                <input
+                  type="text"
+                  name="firstName"
+                  value={data.firstName}
+                  onChange={(e) => handleChange(index, e)}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Efternavn:
+                <input
+                  type="text"
+                  name="lastName"
+                  value={data.lastName}
+                  onChange={(e) => handleChange(index, e)}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                  value={data.email}
+                  onChange={(e) => handleChange(index, e)}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Mobil:
+                <input
+                  type="tel"
+                  name="phone"
+                  value={data.phone}
+                  onChange={(e) => handleChange(index, e)}
+                  required
+                />
+              </label>
+            </div>
+          </div>
+        ))}
         <button type="submit" className={styles.nextBtn}>Submit</button>
       </form>
     </main>
   );
 }
 
-export default Checkout;
+export default PersonalInfo;
