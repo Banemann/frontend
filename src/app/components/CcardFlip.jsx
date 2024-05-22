@@ -42,7 +42,7 @@ const CcardFlip = ({ formData, handleChange }) => {
         <input
           type="text"
           name="expiry"
-          placeholder="Udløbsdato"
+          placeholder="Udløbsdato (MM/ÅÅ)"
           value={formData.expiry}
           onChange={handleChange}
           onFocus={handleInputFocus}
