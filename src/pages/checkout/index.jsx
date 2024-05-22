@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import GoBack from "../../app/components/Goback";
+import GoBack from "../../app/components/GoBack";
 import styles from "./Checkout.module.css";
 import CcardFlip from "../../app/components/CcardFlip"; // Adjust the path as necessary
 
