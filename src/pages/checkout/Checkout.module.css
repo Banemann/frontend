@@ -6,4 +6,27 @@
 .contentBox {
     width: 1275px;
     margin: 0 auto;
+    text-align: center;
+}
+
+.checkoutBtn {
+    background-color: #0079a5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.checkoutBtn:hover {
+    background-color: #05b956;
+    
+}
+
+.btnBox {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3%;
+    max-width: 53%;
 }

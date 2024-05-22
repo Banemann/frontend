@@ -31,7 +31,8 @@ function Checkout() {
         <form onSubmit={handleSubmit}>
           <h1>Betalingsinformation</h1>
           <CcardFlip formData={formData} handleChange={handleChange} />
-          <button type="submit">KØB</button>
+          <div className={styles.btnBox}>
+          <button className={styles.checkoutBtn} type="submit">KØB</button></div>
         </form>
       </div>
     </main>

@@ -26,6 +26,7 @@ const CcardFlip = ({ formData, handleChange }) => {
           value={formData.name}
           onChange={handleChange}
           onFocus={handleInputFocus}
+          required
         /> 
         <input
           type="tel"
@@ -34,6 +35,7 @@ const CcardFlip = ({ formData, handleChange }) => {
           value={formData.number}
           onChange={handleChange}
           onFocus={handleInputFocus}
+          required
         />
        
        <div className={styles.nextTo}>
@@ -44,6 +46,7 @@ const CcardFlip = ({ formData, handleChange }) => {
           value={formData.expiry}
           onChange={handleChange}
           onFocus={handleInputFocus}
+          required
         />
         <input
           type="tel"
@@ -52,6 +55,7 @@ const CcardFlip = ({ formData, handleChange }) => {
           value={formData.cvc}
           onChange={handleChange}
           onFocus={handleInputFocus}
+          required
         />
         </div>
       </div>
