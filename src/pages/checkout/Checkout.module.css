@@ -1,0 +1,9 @@
+.main {
+  background-color: #efefef;
+  height: 100vh;
+}
+
+.contentBox {
+    width: 1275px;
+    margin: 0 auto;
+}

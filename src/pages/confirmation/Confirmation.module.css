@@ -1,0 +1,58 @@
+.contentBox {
+    width: 1275px;
+    margin: 0 auto;
+}
+
+.orderBox {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 2% 5%;
+    margin: 4% 20%;  
+  }
+  
+  .orderBox h2 {
+    text-align: center;
+    margin: 0 0 5% 0;
+  }
+  
+  .orderBox .orderDetails {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .orderBox .orderDetails::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ccc;
+    transform: translateX(-50%);
+  }
+  
+  .orderBox .orderItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .orderBox .orderItem span {
+    flex: 1;
+    padding: 0 10px;
+  }
+  
+  .orderBox .orderItem span.text {
+    text-align: left;
+  }
+  
+  .orderBox .orderItem span.value {
+    text-align: right;
+  }
+  
+  .orderBox p {
+    margin: 5px 0;
+  }
