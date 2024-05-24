@@ -30,7 +30,7 @@ function BandProgram() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className={styles.loadingScreen}>Loading...</div>;
   }
 
   if (error) {
