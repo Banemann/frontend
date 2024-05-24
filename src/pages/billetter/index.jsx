@@ -56,6 +56,16 @@ function Booking() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (regularTicketCount + vipTicketCount === 0) {
+      alert("Husk at vælge mindst én billet");
+      return; 
+    }
+
+    if (selectedSpot == 0) {
+      alert("Husk at vælge camping område");
+      return; 
+    } 
+
     if (selectedSpot) {
       try {
         const response = await fetch("https://sepia-bow-age.glitch.me/reserve-spot", {

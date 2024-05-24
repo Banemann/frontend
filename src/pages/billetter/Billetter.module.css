@@ -2,10 +2,10 @@
     background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
     background-size: 400% 400%;
     animation: gradientAnimation 35s ease infinite;
-    height: 100vh;
     font-family: "Yesteryear", cursive;
   font-weight: 400;
   font-style: normal;
+  
 }
 
 @keyframes gradientAnimation {
@@ -24,7 +24,17 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-bottom: 3%;
 }
+
+
+.formBox h1 {
+  font-size: 2.8rem;
+  margin-top: 3%;
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 
 .cardBox{
   display: flex;
@@ -36,13 +46,17 @@
 .ticketCard {
   background-color: rgba(255, 255, 255, 0.625);
   border-radius: 8px;
-  padding: 3% 25% 10% 25%;
-  margin-bottom: 20px;
+  padding: 3% 40% 10% 40%;
+  margin-bottom: 10%;
   text-align: center;
+  margin-top: 15%;
 }
 
-.ticketCard h2{
+.ticketCard h2 {
   font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ticketCard h3{
@@ -98,7 +112,7 @@
   border-radius: 5px;
   background-color: #007bff;
   color: #fff;
-  margin-top: 20px;
+  margin-top: 7%;
 }
 
 .ticketCounter {
