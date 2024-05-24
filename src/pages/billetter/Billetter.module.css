@@ -3,6 +3,9 @@
     background-size: 400% 400%;
     animation: gradientAnimation 35s ease infinite;
     height: 100vh;
+    font-family: "Yesteryear", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @keyframes gradientAnimation {

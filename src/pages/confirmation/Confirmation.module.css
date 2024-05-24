@@ -1,58 +1,97 @@
 .contentBox {
-    width: 1275px;
-    margin: 0 auto;
+  width: 1275px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Yesteryear", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .orderBox {
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 2% 5%;
-    margin: 4% 20%;  
-  }
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 2% 5%;
+  margin: 4% 20%;  
+  text-align: left;
+}
   
-  .orderBox h2 {
-    text-align: center;
-    margin: 0 0 5% 0;
-  }
+.orderBox h2 {
+  text-align: center;
+  margin: 0 0 5% 0;
+}
+
+.orderBox h3 {
+  text-align: center;
+  margin: 0 0 2% 0;
+}
+
+.orderBox p {
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  border-bottom: solid 1px rgb(219, 219, 219);
+  padding: 1% 0;
   
-  .orderBox .orderDetails {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  .orderBox .orderDetails::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: #ccc;
-    transform: translateX(-50%);
-  }
-  
-  .orderBox .orderItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .orderBox .orderItem span {
-    flex: 1;
-    padding: 0 10px;
-  }
-  
-  .orderBox .orderItem span.text {
-    text-align: left;
-  }
-  
-  .orderBox .orderItem span.value {
-    text-align: right;
-  }
-  
-  .orderBox p {
-    margin: 5px 0;
-  }
+}
+
+.orderBox span {
+  font-size: 1.1em;
+}
+
+.orderBox .orderDetails {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.orderBox .orderDetails::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #ccc;
+}
+
+.orderBox .orderItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.orderBox .orderItem span {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.orderBox .orderItem span.text {
+  text-align: left;
+}
+
+.orderBox .orderItem span.value {
+  text-align: right;
+}
+
+.approveButton {
+  display: flex;
+  justify-content: center;
+  padding: 1% 2%;
+  background-color: rgb(70, 70, 70);
+  border-style: none;
+  border-radius: 5px;    
+  color: rgb(255, 255, 255);
+  font-size: 1.1em;
+}
+
+.approveButton:hover {
+  background-color: rgb(30, 187, 16);
+}
+
+.btnBox {
+  display: flex;
+  justify-content: center;
+}

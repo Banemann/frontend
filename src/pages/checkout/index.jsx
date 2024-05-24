@@ -13,6 +13,15 @@ function Checkout() {
     expiry: "",
   });
   const router = useRouter();
+  const {
+    regularTickets,
+    vipTickets,
+    selectedSpot,
+    greenCamping,
+    twoPersonTent,
+    threePersonTent,
+    formData: personalFormData
+  } = router.query;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +30,18 @@ function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push("/confirmation");
+    router.push({
+      pathname: "/confirmation",
+      query: {
+        regularTickets,
+        vipTickets,
+        selectedSpot,
+        greenCamping,
+        twoPersonTent,
+        threePersonTent,
+        formData: personalFormData
+      }
+    });
   };
 
   return (
@@ -32,7 +52,8 @@ function Checkout() {
           <h1>Betalingsinformation</h1>
           <CcardFlip formData={formData} handleChange={handleChange} />
           <div className={styles.btnBox}>
-          <button className={styles.checkoutBtn} type="submit">KØB</button></div>
+            <button className={styles.checkoutBtn} type="submit">KØB</button>
+          </div>
         </form>
       </div>
     </main>

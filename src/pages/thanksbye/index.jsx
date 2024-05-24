@@ -7,7 +7,7 @@ export default function ThanksBye() {
     <main>
       <Header />
       <div className={styles.contentBox}>
-        <h1>Tak for din bestilling!</h1>
+        <h1>Tak!</h1>
         <p>
           Din bestilling er blevet placeret og behandles. Vi sender dig en
           e-mail med detaljer inden længe.
