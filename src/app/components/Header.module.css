@@ -1,12 +1,9 @@
 .header {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
-  padding: 10px 20px;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  margin-bottom: 1%;
+  align-items: center;
+  padding: 1.5% 0;
 }
 
 .navContainer {
@@ -33,13 +30,22 @@
 .link {
   margin: 0 15px;
   color: white;
-  text-decoration: none;
-  font-size: 16px;
+  font-size: 1.5rem;
 }
 
 .link:hover {
   color: #f1c40f;
   text-decoration: underline;
+}
+
+.active {
+  color: #f1c40f;
+  text-decoration: underline;
+}
+
+.link a {
+  text-decoration: none;
+  color: white;
 }
 
 .logo {

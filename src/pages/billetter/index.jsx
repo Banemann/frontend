@@ -60,7 +60,7 @@ function Booking() {
     e.preventDefault();
 
     if (regularTicketCount + vipTicketCount === 0) {
-      alert("Husk at vælge mindst én billet");
+      alert("Husk at vælge billet");
       return; 
     }
 
