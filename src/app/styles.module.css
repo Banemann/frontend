@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Yesteryear&display=swap');
+@font-face {
+  font-family: 'TeenageGonabe';
+  src: url('/fonts/TeenageGonabe.woff2') format('woff2'),
+       url('/fonts/TeenageGonabe.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .contentContainer {
   background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
@@ -15,6 +21,13 @@
   text-align: center;
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentBox h1 {
+  font-size: 5rem;
+  font-weight: 700;
 }
 
 @keyframes gradientAnimation {
@@ -39,12 +52,13 @@
 
 .link img {
   width: 100vw; 
-  height: 50vh; 
+  height: 80vh; 
   object-fit: cover; 
   filter: brightness(0.6); 
   transition: filter 0.5s;
+  mask-image: linear-gradient(to bottom, transparent, transparent 1%, black 50%, black 70%, transparent 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, transparent 1%, black 10%, black 80%, transparent 90%, transparent);
 }
-
 
 .link:hover img {
   filter: brightness(1); 
@@ -61,9 +75,7 @@
   font-size: 5rem;
   font-weight: bold;
   transition: opacity 0.3s;
-  font-family: "Yesteryear", cursive;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "TeenageGonabe"; 
 }
 
 .link:hover span {

@@ -9,7 +9,10 @@ export default function Home() {
     <main className={styles.contentContainer}>
       <div className={styles.contentBox}>
         
-        <h1 className={styles.title}>Velkommen til Refused</h1>
+        <div className={styles.homeHeader}>
+     
+        <h1 className={styles.title}>LAVAFEST</h1>
+        </div>
         
         <nav className={styles.nav}>
           <ul className={styles.navList}>
