@@ -62,7 +62,7 @@
 
 .link img {
   width: 100vw; 
-  height: 80vh; 
+  height: 70vh; 
   object-fit: cover; 
   filter: brightness(0.6); 
   transition: filter 0.5s;
