@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+
 import Footer from "./components/Footer";
 import styles from "./styles.module.css";
 import Link from "next/link";
@@ -7,8 +7,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className={styles.contentContainer}>
-      <Header/>
       <div className={styles.contentBox}>
+        
+        <h1 className={styles.title}>Velkommen til Refused</h1>
+        
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li className={styles.link}>
