@@ -164,15 +164,15 @@ function Booking() {
               </label>
             ))}
           </div>
-          <h2>Camping Options</h2>
-          <label>
-            <input
+          <h2>Camping Muligheder</h2>
+          <label className={styles.greenCampingBox}>
+           Grøn Camping (249,-) <input
               type="checkbox"
               name="greenCamping"
               checked={greenCamping}
               onChange={handleGreenCampingChange}
             />
-            Grøn Camping (249,-)
+            
           </label>
           <div className={styles.campingOptionsBox}>
             <div className={styles.campingTelt}>
