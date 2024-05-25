@@ -2,7 +2,7 @@
   background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
   background-size: 400% 400%;
   animation: gradientAnimation 35s ease infinite;
-  height: 100vh;        
+  height: 100vh;   
   }
 
 .contentBox {
