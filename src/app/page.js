@@ -34,6 +34,18 @@ export default function Home() {
             </li>
           </ul>
         </nav>
+
+        
+        <div className={styles.bandBox}>
+          
+          <div className={styles.bandCard}>
+            <h2>Band 1</h2>
+            <Image src="/images/1.jpg" alt="Band Image" width={600} height={300} />
+          </div>
+
+          </div>
+        
+
       </div>
       <Footer/>
     </main>

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./Billetter.module.css";
 import Header from "../../app/components/Header";
 import { useRouter } from "next/router";
+import NumberFormat from 'react-number-format';
+
+
 
 function Booking() {
   const [regularTicketCount, setRegularTicketCount] = useState(0);
