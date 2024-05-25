@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Yesteryear&display=swap');
+
 .contentContainer {
     background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
     background-size: 400% 400%;
     animation: gradientAnimation 35s ease infinite;   
-    font-family: "Yesteryear", cursive;
-  font-weight: 400;
-  font-style: normal;
 }
 
 @keyframes gradientAnimation {
@@ -124,5 +123,8 @@
     color: #333;
     text-align: center;
     margin-top: 18%;
+    font-family: "Yesteryear", cursive;
+  font-weight: 400;
+  font-style: normal;
   }
   

@@ -1,11 +1,7 @@
 .main{
     background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
     background-size: 400% 400%;
-    animation: gradientAnimation 35s ease infinite;
-    font-family: "Yesteryear", cursive;
-  font-weight: 400;
-  font-style: normal;
-  
+    animation: gradientAnimation 35s ease infinite;  
 }
 
 @keyframes gradientAnimation {
