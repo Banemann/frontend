@@ -54,8 +54,9 @@ function BandProgram() {
   return (
     <main className={styles.contentContainer}>
       <Header />
-      <div className={styles.Contentbox}>
-        <div className={styles.Filterbox}>
+      <div className={styles.contentBox}>
+        <h1>PROGRAM</h1>
+        <div className={styles.filterBox}>
           <div>
             {scenes.map((scene) => (
               <h2 key={scene} onClick={() => setFilterScene(scene)}>
@@ -65,7 +66,7 @@ function BandProgram() {
           </div>
         </div>
         {filteredSchedule.map(([stage, days]) => (
-          <div className={styles.Sceneprogrambox} key={stage}>
+          <div className={styles.sceneprogramBox} key={stage}>
             <div className={styles.Sceneh2}>
               <h2>{stage}</h2>
             </div>

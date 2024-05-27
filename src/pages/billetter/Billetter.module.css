@@ -26,7 +26,8 @@
 
 .formBox h1 {
   font-size: 2.8rem;
-  margin-top: 3%;
+  margin-top: 7%;
+  margin-bottom: 4%;
   color: #ffcc00;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
