@@ -63,14 +63,21 @@ function BandPage() {
 
         <div className={styles.bandBox}>
           {bandInfo && bandInfo.map(band => (
-            <div key={band.slug} className={styles.bandCard}>
+            
+            <Link key={band.slug} href={`/bands/${band.slug}`} target="_blank"
+            rel="noopener noreferrer" className={styles.bandCard}>
              <div className={styles.imgBox}>
               <Image src={`/logos/${band.logo}`} alt={band.name} width={200} height={200} />
               </div>
               <h2>{band.name}</h2>
-            </div>
+            </Link>
           ))}
         </div>
+
+        <Link href={`/allbands`}>
+          <button className={styles.allBandsBtn}>ALLE BANDS</button>
+        </Link>
+
       </div>
       <Footer />
     </main>

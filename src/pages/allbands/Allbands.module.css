@@ -17,6 +17,13 @@
     text-align: center;
   }
 
+  .title {
+    font-size: 2.8rem;
+    margin-top: 5%;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
   .bandBox {
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +31,6 @@
     align-items: center;
     margin-top: 5%;
   }
-  
   
   .imgBox{
     height: 200px;
@@ -54,5 +60,10 @@
     width: 250px;
     height: 250px;
     margin: 1.5%;
+  }
+
+  .linkA:hover {
+    background-color: #ffcc00;
+    color: #ff6a6a;
   }
   
