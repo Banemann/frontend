@@ -4,6 +4,12 @@ import Footer from "./components/Footer";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { Boogaloo } from 'next/font/google';
+
+const boogaloo = Boogaloo({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 function BandPage() {
   const [bandInfo, setBandInfo] = useState(null);
@@ -34,12 +40,12 @@ function BandPage() {
   if (error) return <p>Fejl ved loading af band information {error.message}</p>;
 
   return (
-    <main className={styles.contentContainer}>
+    <main className={`${styles.contentContainer} ${boogaloo.className}`}>
       <div className={styles.contentBox}>
         <div className={styles.homeHeader}>
           <h1 className={styles.title}>LAVAFEST</h1>
         </div>
-        
+      
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li className={styles.link}>

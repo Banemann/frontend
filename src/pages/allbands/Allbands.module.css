@@ -64,6 +64,9 @@
 
   .linkA:hover {
     background-color: #ffcc00;
-    color: #ff6a6a;
+    color: #000000;
   }
   
+  .linkA:hover img {
+    transform: scale(1.05); 
+  }

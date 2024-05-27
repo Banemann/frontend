@@ -44,6 +44,7 @@
   color: #ff6a6a;
   text-shadow: 2px 2px 1px #000000;
   margin: 10% 0; 
+  font-weight: 600;
 }
 
 .navList {
@@ -116,7 +117,21 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   margin: 0 auto;
   width: 250px;
-  height: 250px;
+}
+
+.bandCard:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+.bandCard:hover img {
+  transform: scale(1.05); 
+}
+
+.bandCard h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 5%;
 }
 
 .imgBox{
