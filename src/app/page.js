@@ -18,7 +18,7 @@ function BandPage() {
           throw new Error(`Fetch error: ${response.statusText}`);
         }
         const data = await response.json();
-        const limitedData = data.slice(0, 3);
+        const limitedData = data.slice(0, 4);
         setBandInfo(limitedData);
       } catch (error) {
         setError(error);
@@ -64,7 +64,9 @@ function BandPage() {
         <div className={styles.bandBox}>
           {bandInfo && bandInfo.map(band => (
             <div key={band.slug} className={styles.bandCard}>
+             <div className={styles.imgBox}>
               <Image src={`/logos/${band.logo}`} alt={band.name} width={200} height={200} />
+              </div>
               <h2>{band.name}</h2>
             </div>
           ))}

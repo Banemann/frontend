@@ -14,14 +14,20 @@ const Header = () => {
         </Link>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
-            <li className={`${styles.link} ${router.pathname === '/program' ? styles.active : ''}`}>
+           <li className={`${styles.link} ${router.pathname === '/billetter' ? styles.active : ''}`}>
+              <Link prefetch={false} href="/billetter">
+                Billetter
+              </Link>
+            </li>
+             <li className={`${styles.link} ${router.pathname === '/program' ? styles.active : ''}`}>
               <Link prefetch={false} href="/program">
                 Program
               </Link>
             </li>
-            <li className={`${styles.link} ${router.pathname === '/billetter' ? styles.active : ''}`}>
-              <Link prefetch={false} href="/billetter">
-                Billetter
+
+            <li className={`${styles.link} ${router.pathname === '/allbands' ? styles.active : ''}`}>
+              <Link prefetch={false} href="/allbands">
+                Bands
               </Link>
             </li>
           </ul>
