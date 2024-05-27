@@ -113,6 +113,7 @@ function PersonalInfo() {
               </div>
             ))}
           </div>
+
           <button type="submit" className={styles.checkoutBtn}>
             Til checkout
           </button>

@@ -36,7 +36,7 @@
   font-size: 5rem;
   font-family: "rubik";
   color: #ff6a6a;
-  text-shadow: 2px 2px 2px #000000;
+  text-shadow: 2px 2px 1px #000000;
   margin: 10% 0; 
 }
 
@@ -91,4 +91,23 @@
 .link:hover span {
   opacity: 1;
   color: black;
+}
+
+.bandBox{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+
+.bandCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6a6a;
+  color: white;
+  padding: 1%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 5% auto;
 }

@@ -11,14 +11,14 @@ function BandPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchBandInfo = async (maxItems = 3) => {
+    const fetchBandInfo = async () => {
       try {
         const response = await fetch('https://sepia-bow-age.glitch.me/bands/');
         if (!response.ok) {
           throw new Error(`Fetch error: ${response.statusText}`);
         }
         const data = await response.json();
-        const limitedData = data.slice(0, maxItems);
+        const limitedData = data.slice(0, 3);
         setBandInfo(limitedData);
       } catch (error) {
         setError(error);
@@ -64,8 +64,8 @@ function BandPage() {
         <div className={styles.bandBox}>
           {bandInfo && bandInfo.map(band => (
             <div key={band.slug} className={styles.bandCard}>
-              <h2>{band.name}</h2>
               <Image src={`/logos/${band.logo}`} alt={band.name} width={200} height={200} />
+              <h2>{band.name}</h2>
             </div>
           ))}
         </div>
