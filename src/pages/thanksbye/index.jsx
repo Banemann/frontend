@@ -3,7 +3,7 @@ import styles from "./Thanksbye.module.css";
 
 export default function ThanksBye() {
   return (
-    <main>
+    <main className={styles.main}>
       <Header />
       <div className={styles.contentBox}>
         <h1>Tak!</h1>

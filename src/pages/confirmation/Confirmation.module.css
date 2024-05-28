@@ -1,7 +1,10 @@
 .contentBox {
-  width: 1275px;
   margin: 0 auto;
   text-align: center;
+}
+
+.contentBox h2 {
+  font-size: 1.7rem;
 }
 
 .orderBox {
@@ -21,10 +24,11 @@
 .orderBox h3 {
   text-align: center;
   margin: 0 0 2% 0;
+  font-size: 1.5rem;
 }
 
 .orderBox p {
-  font-size: 1.1em;
+  font-size: 1.4rem;
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
@@ -34,7 +38,7 @@
 }
 
 .orderBox span {
-  font-size: 1.1em;
+  font-size: 1.4rem;
 }
 
 .orderBox .orderDetails {
@@ -81,7 +85,7 @@
   border-style: none;
   border-radius: 5px;    
   color: rgb(255, 255, 255);
-  font-size: 1.1em;
+  font-size: 1.4em;
   cursor: pointer;
   margin: 3% 0 5% 0;
 }
@@ -93,4 +97,11 @@
 .btnBox {
   display: flex;
   justify-content: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .orderBox {
+    margin: 4% 5%;
+  }
 }

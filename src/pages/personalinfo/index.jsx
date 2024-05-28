@@ -49,7 +49,7 @@ function PersonalInfo() {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
       <Header />
       <div className={styles.contentBox}>
         <h1>Deltager Information</h1>
