@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Program.module.css";
 import Header from "../../app/components/Header";
 import Link from "next/link";
+import Footer from "../../app/components/Footer";
 
 function BandProgram() {
   const [schedule, setSchedule] = useState({});
@@ -99,6 +100,7 @@ function BandProgram() {
           </div>
         ))}
       </div>
+      <Footer/>
     </main>
   );
 }

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Allbands.module.css';
 import Header from '../../app/components/Header';
+import Footer from '@/app/components/Footer';
 
 function AllBands() {
     const [bandInfo, setBandInfo] = useState(null);
@@ -48,6 +49,7 @@ function AllBands() {
                     ))}
                 </div>
             </div>
+            <Footer/>
         </main>
     );
 }
