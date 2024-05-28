@@ -37,7 +37,7 @@ function BandPage() {
   }, []);
 
   if (isLoading) return <p className={styles.loadingScreen}>Loading...</p>;
-  if (error) return <p>Fejl ved loading af band information {error.message}</p>;
+  if (error) return <p className={styles.errorMessage}>Fejl ved loading af band information: {error.message}</p>;
 
   return (
     <main className={`${styles.contentContainer} ${boogaloo.className}`}>
@@ -49,7 +49,7 @@ function BandPage() {
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li className={styles.link}>
-              <Link prefetch={false} href="/program">
+              <Link href="/program">
                 <div>
                   <Image src="/logos/1280px-RefusedWayOutWest.jpg" alt="Program Image" width={600} height={300} />
                   <span>Program</span>
@@ -57,7 +57,7 @@ function BandPage() {
               </Link>
             </li>
             <li className={styles.link}>
-              <Link prefetch={false} href="/billetter">
+              <Link href="/billetter">
                 <div>
                   <Image src="/images/tickets2.jpg" alt="Billetter Image" width={600} height={300} />
                   <span>Billetter</span>
@@ -69,18 +69,16 @@ function BandPage() {
 
         <div className={styles.bandBox}>
           {bandInfo && bandInfo.map(band => (
-            
-            <Link key={band.slug} href={`/bands/${band.slug}`} target="_blank"
-            rel="noopener noreferrer" className={styles.bandCard}>
-             <div className={styles.imgBox}>
-              <Image src={`/logos/${band.logo}`} alt={band.name} width={200} height={200} />
+            <Link key={band.slug} href={`/bands/${band.slug}`} target="_blank" rel="noopener noreferrer" className={styles.bandCard}>
+              <div className={styles.imgBox}>
+                <Image src={`/logos/${band.logo}`} alt={`${band.name} logo`} width={200} height={200} />
               </div>
               <h2>{band.name}</h2>
             </Link>
           ))}
         </div>
 
-        <Link href={`/allbands`}>
+        <Link href="/allbands">
           <button className={styles.allBandsBtn}>ALLE BANDS</button>
         </Link>
 
