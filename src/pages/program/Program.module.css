@@ -141,4 +141,21 @@
     font-size: 4rem;
          font-family: "TeenageGonabe";
   }
+
+
+  @media screen and (max-width: 1000px) {
+    
+    .Bandtid {
+      width: 70%;
+      margin-top: 3%;
+      padding: 2%;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    
+    .Bandtid {
+      width: 85%;
+    }
+  }
   
