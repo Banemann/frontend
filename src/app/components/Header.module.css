@@ -1,3 +1,4 @@
+/* Base styles */
 @font-face {
   font-family: 'rubik';
   src: url('/fonts/rubik.woff2') format('woff2'),
@@ -68,3 +69,48 @@
   text-decoration: none;
   color: white;
 }
+
+
+@media screen and (max-width: 1000px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .link {
+    font-size: 1.3rem;
+    margin: 0 10px;
+  }
+
+  
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 1% 0;
+    display: flex;
+  }
+
+  .navContainer {
+    flex-direction: column;   
+  }
+
+  .nav {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+  }
+
+  .navList {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    
+  }
+
+  .link {
+    margin: 15% 0;
+    font-size: 1.5rem;
+  }
+}
+
+
