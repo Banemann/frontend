@@ -45,7 +45,7 @@ function Checkout() {
   };
 
   return (
-    <main className={styles.main}>
+    <main>
       <GoBack/>
       <div className={styles.contentBox}>
         <form onSubmit={handleSubmit}>

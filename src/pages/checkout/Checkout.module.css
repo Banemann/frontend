@@ -1,12 +1,8 @@
-.main {
-  background-color: #efefef;
-  height: 100vh;
-}
-
 .contentBox {
-    width: 1275px;
     margin: 0 auto;
     text-align: center;
+    background-color: #efefef;
+    padding: 1% 0 1.8% 0;
 }
 
 .checkoutBtn {
