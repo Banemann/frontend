@@ -174,3 +174,41 @@
   background-color: #0056b3;
 }
 
+
+@media screen and (max-width: 1325px) {
+ .campingAreabox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .campingOptionsBox{
+  display: flex;
+  flex-direction: column; 
+ }
+
+ .campingAreaBtn{
+  padding: 8% 5%;
+  margin-bottom: 5%;
+ }
+
+  .greenCampingBox{
+    width: 100%;
+    margin: 3% auto;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .cardBox{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .ticketCard {
+    padding: 2% 0 6% 0;
+    margin: 4% 0;
+  }
+}
