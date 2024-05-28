@@ -1,5 +1,4 @@
 import Header from "../../app/components/Header";
-import Footer from "../../app/components/Footer";
 import styles from "./Thanksbye.module.css";
 
 export default function ThanksBye() {
@@ -14,7 +13,6 @@ export default function ThanksBye() {
         </p>
         <p>Tak for at handle hos os!</p>
       </div>
-      <Footer />
     </main>
   );
 }
