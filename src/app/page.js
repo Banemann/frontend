@@ -36,7 +36,7 @@ function BandPage() {
     fetchBandInfo();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p className={styles.loadingScreen}>Loading...</p>;
   if (error) return <p>Fejl ved loading af band information {error.message}</p>;
 
   return (

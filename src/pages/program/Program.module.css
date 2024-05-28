@@ -134,10 +134,11 @@
 
 
 .loadingScreen {
-    font-size: 5rem;
-    color: #333;
-    text-align: center;
-    margin-top: 18%;
-    font-family: "TeenageGonabe";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 4rem;
+         font-family: "TeenageGonabe";
   }
   
