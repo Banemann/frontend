@@ -18,32 +18,20 @@ function Confirmation() {
 
   const parsedFormData = JSON.parse(formData);
 
-  const handleProceed = async () => {
-    if (!reservationId) {
-      alert("No reservation to confirm.");
-      return;
-    }
-
-    try {
-      const response = await fetch("https://sepia-bow-age.glitch.me/fullfill-reservation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: reservationId,
-        }),
-      });
-
-      if (response.ok) {
-        console.log("Reservation confirmed");
-        router.push("/thanksbye");
-      } else {
-        console.error("Failed to confirm reservation");
+  const handleProceedToCheckout = () => {
+    router.push({
+      pathname: "/checkout",
+      query: {
+        regularTickets,
+        vipTickets,
+        selectedSpot,
+        greenCamping,
+        twoPersonTent,
+        threePersonTent,
+        formData,
+        reservationId
       }
-    } catch (error) {
-      console.error("Error confirming reservation:", error);
-    }
+    });
   };
 
   return (
@@ -90,8 +78,8 @@ function Confirmation() {
           </div>
         ))}
         <div className={styles.btnBox}>
-          <button className={styles.approveButton} onClick={handleProceed}>
-            GODKEND
+          <button className={styles.proceedButton} onClick={handleProceedToCheckout}>
+            Gå til betaling
           </button>
         </div>
       </div>

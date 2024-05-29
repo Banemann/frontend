@@ -21,7 +21,6 @@ function Checkout() {
     twoPersonTent,
     threePersonTent,
     formData: personalFormData,
-    reservationId
   } = router.query;
 
   const handleChange = (e) => {
@@ -29,21 +28,33 @@ function Checkout() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    router.push({
-      pathname: "/confirmation",
-      query: {
-        regularTickets,
-        vipTickets,
-        selectedSpot,
-        greenCamping,
-        twoPersonTent,
-        threePersonTent,
-        formData: personalFormData,
-        reservationId
+  const handleReservationConfirmation = async () => {
+    try {
+      const response = await fetch("https://sepia-bow-age.glitch.me/confirm-reservation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          //  data 
+          reservationId: personalFormData.reservationId,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Reservation confirmed");
+        router.push("/thanksbye");
+      } else {
+        console.error("Failed to confirm reservation");
       }
-    });
+    } catch (error) {
+      console.error("Error confirming reservation:", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await handleReservationConfirmation(); 
   };
 
   return (

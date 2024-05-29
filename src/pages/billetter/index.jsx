@@ -172,11 +172,12 @@ function Booking() {
               name="greenCamping"
               checked={greenCamping}
               onChange={handleGreenCampingChange}
-            />
-            
+            /> 
           </label>
+
+          <h2>Telt (Inkl. Opsætning)</h2>
           <div className={styles.campingOptionsBox}>
-            <h2>Telt (Ink. Opsætning)</h2>
+            
             <div className={styles.campingTelt}>
               <label>
                 <p>2 Personers Telt (299,-)</p>
