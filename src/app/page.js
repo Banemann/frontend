@@ -11,7 +11,7 @@ const boogaloo = Boogaloo({
   subsets: ['latin'],
 });
 
-function BandPage() {
+function HomePage() {
   const [bandInfo, setBandInfo] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +45,10 @@ function BandPage() {
         <div className={styles.homeHeader}>
           <h1 className={styles.title}>LAVAFEST</h1>
         </div>
+
+        <Link className={styles.login} href="/fakelogin" passHref>
+          LOG IND
+        </Link>
       
         <nav className={styles.nav}>
           <ul className={styles.navList}>
@@ -59,7 +63,7 @@ function BandPage() {
             <li className={styles.link}>
               <Link href="/billetter">
                 <div>
-                  <Image src="/images/tickets2.jpg" alt="Billetter Image" width={600} height={300} />
+                  <Image src="/images/tickets2.jpg" alt="Billetter Image" width={600} height={300} priority/>
                   <span>Billetter</span>
                 </div>
               </Link>
@@ -88,4 +92,4 @@ function BandPage() {
   );
 }
 
-export default BandPage;
+export default HomePage;
