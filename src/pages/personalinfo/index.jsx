@@ -35,7 +35,7 @@ function PersonalInfo() {
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push({
-      pathname: "/confirmation",
+      pathname: "/checkout",
       query: {
         regularTickets,
         vipTickets,
@@ -116,7 +116,7 @@ function PersonalInfo() {
           </div>
 
           <button type="submit" className={styles.checkoutBtn}>
-            Til checkout
+            Til betaling
           </button>
         </form>
       </div>

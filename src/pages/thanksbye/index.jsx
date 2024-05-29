@@ -11,7 +11,7 @@ export default function ThanksBye() {
           Din bestilling er blevet placeret og behandles. Vi sender dig en
           e-mail med detaljer inden længe.
         </p>
-        <p>Tak for at handle hos os!</p>
+        <p>Tak for for din bestilling - vi glæder os til at se dig!</p>
       </div>
     </main>
   );

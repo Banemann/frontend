@@ -21,6 +21,7 @@ function Checkout() {
     twoPersonTent,
     threePersonTent,
     formData: personalFormData,
+    reservationId
   } = router.query;
 
   const handleChange = (e) => {
@@ -28,33 +29,21 @@ function Checkout() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleReservationConfirmation = async () => {
-    try {
-      const response = await fetch("https://sepia-bow-age.glitch.me/confirm-reservation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          //  data 
-          reservationId: personalFormData.reservationId,
-        }),
-      });
-
-      if (response.ok) {
-        console.log("Reservation confirmed");
-        router.push("/thanksbye");
-      } else {
-        console.error("Failed to confirm reservation");
-      }
-    } catch (error) {
-      console.error("Error confirming reservation:", error);
-    }
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await handleReservationConfirmation(); 
+    router.push({
+      pathname: "/confirmation",
+      query: {
+        regularTickets,
+        vipTickets,
+        selectedSpot,
+        greenCamping,
+        twoPersonTent,
+        threePersonTent,
+        formData: personalFormData,
+        reservationId
+      }
+    });
   };
 
   return (
@@ -65,9 +54,10 @@ function Checkout() {
           <h1>Betalingsinformation</h1>
           <CcardFlip formData={formData} handleChange={handleChange} />
           <div className={styles.btnBox}>
-            <button className={styles.checkoutBtn} type="submit">KØB</button>
+            <button className={styles.checkoutBtn} type="submit">Næste</button>
           </div>
         </form>
+        <p>(Betalingen vil først gå igennem ved godkendelse af næste side)</p>
       </div>
     </main>
   );
