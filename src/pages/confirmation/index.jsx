@@ -12,13 +12,38 @@ function Confirmation() {
     greenCamping = "false",
     twoPersonTent = "0",
     threePersonTent = "0",
-    formData = "[]"
+    formData = "[]",
+    reservationId = ""
   } = router.query;
 
   const parsedFormData = JSON.parse(formData);
 
-  const handleProceed = () => {
-    router.push("/thanksbye");
+  const handleProceed = async () => {
+    if (!reservationId) {
+      alert("No reservation to confirm.");
+      return;
+    }
+
+    try {
+      const response = await fetch("https://sepia-bow-age.glitch.me/fullfill-reservation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: reservationId,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Reservation confirmed");
+        router.push("/thanksbye");
+      } else {
+        console.error("Failed to confirm reservation");
+      }
+    } catch (error) {
+      console.error("Error confirming reservation:", error);
+    }
   };
 
   return (

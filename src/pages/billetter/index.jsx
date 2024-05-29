@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./Billetter.module.css";
 import Header from "../../app/components/Header";
 import { useRouter } from "next/router";
-import NumberFormat from 'react-number-format';
-
-
 
 function Booking() {
   const [regularTicketCount, setRegularTicketCount] = useState(0);
@@ -95,6 +92,7 @@ function Booking() {
               greenCamping: greenCamping,
               twoPersonTent: tents.twoPerson,
               threePersonTent: tents.threePerson,
+              reservationId: data.id
             },
           });
         } else {
@@ -178,6 +176,7 @@ function Booking() {
             
           </label>
           <div className={styles.campingOptionsBox}>
+            <h2>Telt (Ink. Opsætning)</h2>
             <div className={styles.campingTelt}>
               <label>
                 <p>2 Personers Telt (299,-)</p>

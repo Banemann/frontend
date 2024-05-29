@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import GoBack from "../../app/components/GoBack";
 import styles from "./Checkout.module.css";
-import CcardFlip from "../../app/components/CcardFlip"; // Adjust the path as necessary
+import CcardFlip from "../../app/components/CcardFlip";
 
 function Checkout() {
   const [formData, setFormData] = useState({
@@ -20,7 +20,8 @@ function Checkout() {
     greenCamping,
     twoPersonTent,
     threePersonTent,
-    formData: personalFormData
+    formData: personalFormData,
+    reservationId
   } = router.query;
 
   const handleChange = (e) => {
@@ -39,14 +40,15 @@ function Checkout() {
         greenCamping,
         twoPersonTent,
         threePersonTent,
-        formData: personalFormData
+        formData: personalFormData,
+        reservationId
       }
     });
   };
 
   return (
     <main>
-      <GoBack/>
+      <GoBack />
       <div className={styles.contentBox}>
         <form onSubmit={handleSubmit}>
           <h1>Betalingsinformation</h1>
