@@ -78,21 +78,26 @@ function BandProgram() {
                   {slots
                     .filter((slot) => slot.act !== "break")
                     .map((slot, i) => (
-                      <Link className={styles.linkA}
-                        href={`/bands/${encodeURIComponent(
-                          slot.act.replace(/ /g, "-")
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={i}
+                      
+                      <Link
+                      className={styles.linkA}
+                      href={`/bands/${encodeURIComponent(
+                        slot.act.includes("-") 
+                          ? slot.act.replace(/[,\s]+/g, "") // If band name contains "-", remove spaces and commas (hjælp af ChatGPT)
+                          : slot.act.replace(/\s+/g, "-") // Otherwise, replace spaces with "-" (hjælp af ChatGPT)
+                      ).replace("%2C", "").toLowerCase()}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={i}
                       >
-                        <div className={styles.Bandtid}>
-                          <p>
-                            {slot.start} - {slot.end}
-                          </p>{" "}
-                          <p>{slot.act}</p>
-                        </div>
+                      <div className={styles.Bandtid}>
+                        <p>
+                          {slot.start} - {slot.end}
+                        </p>{" "}
+                        <p>{slot.act}</p>
+                      </div>
                       </Link>
+
                     ))}
                 </div>
               ))}
@@ -100,7 +105,7 @@ function BandProgram() {
           </div>
         ))}
       </div>
-      <Footer/>
+      <Footer />
     </main>
   );
 }
