@@ -25,6 +25,10 @@ function BandPage() {
           if (!response.ok) {
             throw new Error("Failed fetch");
           }
+          const text = await response.text();
+          if (!text) {
+            throw new Error("empty response");
+          }
           const data = JSON.parse(text);
           setBandInfo(data);
           setIsLoading(false);
@@ -47,7 +51,7 @@ function BandPage() {
   }
 
   if (!bandInfo) {
-    return <div>Ingen band information.</div>;
+    return <div>No band information available.</div>;
   }
 
   return (
