@@ -55,7 +55,7 @@ function BandPage() {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <Header />
       <div className={styles.contentBox}>
         <div className={styles.leftContent}>
@@ -75,7 +75,6 @@ function BandPage() {
           <p>{bandInfo.bio}</p>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }
