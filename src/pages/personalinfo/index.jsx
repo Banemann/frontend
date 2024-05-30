@@ -5,7 +5,15 @@ import Header from "../../app/components/Header";
 
 function PersonalInfo() {
   const router = useRouter();
-  const { regularTickets = "0", vipTickets = "0", selectedSpot = "", greenCamping = "false", twoPersonTent = "0", threePersonTent = "0", reservationId = "" } = router.query;
+  const {
+    regularTickets = "0",
+    vipTickets = "0",
+    selectedSpot = "",
+    greenCamping = "false",
+    twoPersonTent = "0",
+    threePersonTent = "0",
+    reservationId = "",
+  } = router.query;
   const [formData, setFormData] = useState([]);
 
   useEffect(() => {
@@ -44,11 +52,11 @@ function PersonalInfo() {
         twoPersonTent,
         threePersonTent,
         formData: JSON.stringify(formData),
-        reservationId
-      }
+        reservationId,
+      },
     });
   };
-  
+
   return (
     <main className={styles.main}>
       <Header />

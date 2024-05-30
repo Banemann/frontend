@@ -16,12 +16,15 @@ function Booking() {
   useEffect(() => {
     const fetchAvailableSpots = async () => {
       try {
-        const response = await fetch("https://sepia-bow-age.glitch.me/available-spots", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://sepia-bow-age.glitch.me/available-spots",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
         setAvailableSpots(data);
       } catch (error) {
@@ -54,20 +57,20 @@ function Booking() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents the default form submission (hjælp af ChatGPT)
 
     const totalTickets = regularTicketCount + vipTicketCount;
     const totalTentCapacity = tents.twoPerson * 2 + tents.threePerson * 3;
 
     if (totalTickets === 0) {
       alert("Husk at vælge billet");
-      return; 
+      return;
     }
 
     if (selectedSpot === "") {
       alert("Husk at vælge camping område");
-      return; 
-    } 
+      return;
+    }
 
     if (totalTentCapacity > 0 && totalTickets > totalTentCapacity) {
       alert("Manglende telt-plads.");
@@ -76,16 +79,19 @@ function Booking() {
 
     if (selectedSpot) {
       try {
-        const response = await fetch("https://sepia-bow-age.glitch.me/reserve-spot", {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            area: selectedSpot,
-            amount: totalTickets,
-          }),
-        });
+        const response = await fetch(
+          "https://sepia-bow-age.glitch.me/reserve-spot",
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              area: selectedSpot,
+              amount: totalTickets,
+            }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -100,7 +106,7 @@ function Booking() {
               greenCamping: greenCamping,
               twoPersonTent: tents.twoPerson,
               threePersonTent: tents.threePerson,
-              reservationId: data.id
+              reservationId: data.id,
             },
           });
         } else {
@@ -175,12 +181,13 @@ function Booking() {
           </div>
           <h2>Camping Muligheder</h2>
           <label className={styles.greenCampingBox}>
-            Grøn Camping (249,-) <input
+            Grøn Camping (249,-){" "}
+            <input
               type="checkbox"
               name="greenCamping"
               checked={greenCamping}
               onChange={handleGreenCampingChange}
-            /> 
+            />
           </label>
 
           <h2>Telt (Inkl. Opsætning)</h2>

@@ -21,7 +21,7 @@ function Checkout() {
     twoPersonTent,
     threePersonTent,
     formData: personalFormData,
-    reservationId
+    reservationId,
   } = router.query;
 
   const handleChange = (e) => {
@@ -41,8 +41,8 @@ function Checkout() {
         twoPersonTent,
         threePersonTent,
         formData: personalFormData,
-        reservationId
-      }
+        reservationId,
+      },
     });
   };
 
@@ -54,7 +54,9 @@ function Checkout() {
           <h1>Betalingsinformation</h1>
           <CcardFlip formData={formData} handleChange={handleChange} />
           <div className={styles.btnBox}>
-            <button className={styles.checkoutBtn} type="submit">Køb</button>
+            <button className={styles.checkoutBtn} type="submit">
+              Køb
+            </button>
           </div>
         </form>
       </div>

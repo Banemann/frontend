@@ -13,7 +13,7 @@ function Confirmation() {
     twoPersonTent = "0",
     threePersonTent = "0",
     formData = "[]",
-    reservationId = ""
+    reservationId = "",
   } = router.query;
 
   const parsedFormData = JSON.parse(formData);
@@ -52,15 +52,18 @@ function Confirmation() {
     }
 
     try {
-      const response = await fetch("https://sepia-bow-age.glitch.me/fullfill-reservation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: reservationId,
-        }),
-      });
+      const response = await fetch(
+        "https://sepia-bow-age.glitch.me/fullfill-reservation",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: reservationId,
+          }),
+        }
+      );
 
       if (response.ok) {
         console.log("Reservation confirmed");
@@ -90,13 +93,15 @@ function Confirmation() {
             <div className={styles.orderItem}>
               <span className={styles.text}>Normal Billet:</span>
               <span className={styles.value}>
-                {regularTickets} x {regularTicketPrice} kr = {regularTickets * regularTicketPrice} kr
+                {regularTickets} x {regularTicketPrice} kr ={" "}
+                {regularTickets * regularTicketPrice} kr
               </span>
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>VIP Billet:</span>
               <span className={styles.value}>
-                {vipTickets} x {vipTicketPrice} kr = {vipTickets * vipTicketPrice} kr
+                {vipTickets} x {vipTicketPrice} kr ={" "}
+                {vipTickets * vipTicketPrice} kr
               </span>
             </div>
             <div className={styles.orderItem}>
@@ -112,13 +117,15 @@ function Confirmation() {
             <div className={styles.orderItem}>
               <span className={styles.text}>2 Pers. Telt:</span>
               <span className={styles.value}>
-                {twoPersonTent} x {twoPersonTentPrice} kr = {twoPersonTent * twoPersonTentPrice} kr
+                {twoPersonTent} x {twoPersonTentPrice} kr ={" "}
+                {twoPersonTent * twoPersonTentPrice} kr
               </span>
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>3 Pers. Telt:</span>
               <span className={styles.value}>
-                {threePersonTent} x {threePersonTentPrice} kr = {threePersonTent * threePersonTentPrice} kr
+                {threePersonTent} x {threePersonTentPrice} kr ={" "}
+                {threePersonTent * threePersonTentPrice} kr
               </span>
             </div>
             <div className={styles.orderItem}>
@@ -127,17 +134,27 @@ function Confirmation() {
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>Total:</span>
-              <span className={`${styles.value} ${styles.total}`}>{totalCost} kr</span>
+              <span className={`${styles.value} ${styles.total}`}>
+                {totalCost} kr
+              </span>
             </div>
           </div>
         </div>
         {parsedFormData.map((data, index) => (
           <div className={styles.orderBox} key={index}>
             <h3>Billet {index + 1}:</h3>
-            <p>Fornavn: <span>{data.firstName}</span></p>
-            <p>Efternavn: <span>{data.lastName}</span></p>
-            <p>Email: <span>{data.email}</span></p>
-            <p>Mobil: <span>{data.phone}</span></p>
+            <p>
+              Fornavn: <span>{data.firstName}</span>
+            </p>
+            <p>
+              Efternavn: <span>{data.lastName}</span>
+            </p>
+            <p>
+              Email: <span>{data.email}</span>
+            </p>
+            <p>
+              Mobil: <span>{data.phone}</span>
+            </p>
           </div>
         ))}
         <div className={styles.btnBox}>
