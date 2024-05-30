@@ -81,7 +81,7 @@ function Confirmation() {
   const bookingFee = 99;
 
   return (
-    <main>
+    <main className={styles.main}>
       <Header />
       <div className={styles.contentBox}>
         <div className={styles.orderBox}>
@@ -131,7 +131,6 @@ function Confirmation() {
             </div>
           </div>
         </div>
-        <h2>Personlige Oplysninger</h2>
         {parsedFormData.map((data, index) => (
           <div className={styles.orderBox} key={index}>
             <h3>Billet {index + 1}:</h3>

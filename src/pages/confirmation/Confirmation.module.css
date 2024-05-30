@@ -1,3 +1,15 @@
+.main {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a6a, #ffd700, #00bfff, #1e90ff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 35s ease infinite; 
+  }
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .contentBox {
   margin: 0 auto;
   text-align: center;
