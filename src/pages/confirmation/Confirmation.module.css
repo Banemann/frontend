@@ -77,6 +77,10 @@
   text-align: right;
 }
 
+.total{
+  text-decoration: underline;
+}
+
 .approveButton {
   display: flex;
   justify-content: center;

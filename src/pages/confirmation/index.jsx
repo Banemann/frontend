@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Header from "../../app/components/Header";
 import styles from "./Confirmation.module.css";
@@ -17,6 +17,33 @@ function Confirmation() {
   } = router.query;
 
   const parsedFormData = JSON.parse(formData);
+
+  const [totalCost, setTotalCost] = useState(0);
+
+  useEffect(() => {
+    const regularTicketPrice = 799;
+    const vipTicketPrice = 1299;
+    const twoPersonTentPrice = 299;
+    const threePersonTentPrice = 399;
+    const greenCampingPrice = greenCamping === "true" ? 249 : 0;
+    const bookingFee = 99;
+
+    const total =
+      regularTickets * regularTicketPrice +
+      vipTickets * vipTicketPrice +
+      twoPersonTent * twoPersonTentPrice +
+      threePersonTent * threePersonTentPrice +
+      greenCampingPrice +
+      bookingFee;
+
+    setTotalCost(total);
+  }, [
+    regularTickets,
+    vipTickets,
+    greenCamping,
+    twoPersonTent,
+    threePersonTent,
+  ]);
 
   const handleProceed = async () => {
     if (!reservationId) {
@@ -46,6 +73,13 @@ function Confirmation() {
     }
   };
 
+  const regularTicketPrice = 799;
+  const vipTicketPrice = 1299;
+  const twoPersonTentPrice = 299;
+  const threePersonTentPrice = 399;
+  const greenCampingPrice = greenCamping === "true" ? 249 : 0;
+  const bookingFee = 99;
+
   return (
     <main>
       <Header />
@@ -55,11 +89,15 @@ function Confirmation() {
           <div className={styles.orderDetails}>
             <div className={styles.orderItem}>
               <span className={styles.text}>Normal Billet:</span>
-              <span className={styles.value}>{regularTickets}</span>
+              <span className={styles.value}>
+                {regularTickets} x {regularTicketPrice} kr = {regularTickets * regularTicketPrice} kr
+              </span>
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>VIP Billet:</span>
-              <span className={styles.value}>{vipTickets}</span>
+              <span className={styles.value}>
+                {vipTickets} x {vipTicketPrice} kr = {vipTickets * vipTicketPrice} kr
+              </span>
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>Område:</span>
@@ -67,15 +105,29 @@ function Confirmation() {
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>Grøn Camping:</span>
-              <span className={styles.value}>{greenCamping === "true" ? "Yes" : "No"}</span>
+              <span className={styles.value}>
+                {greenCamping === "true" ? `${greenCampingPrice} kr` : "No"}
+              </span>
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>2 Pers. Telt:</span>
-              <span className={styles.value}>{twoPersonTent}</span>
+              <span className={styles.value}>
+                {twoPersonTent} x {twoPersonTentPrice} kr = {twoPersonTent * twoPersonTentPrice} kr
+              </span>
             </div>
             <div className={styles.orderItem}>
               <span className={styles.text}>3 Pers. Telt:</span>
-              <span className={styles.value}>{threePersonTent}</span>
+              <span className={styles.value}>
+                {threePersonTent} x {threePersonTentPrice} kr = {threePersonTent * threePersonTentPrice} kr
+              </span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>Booking Gebyr:</span>
+              <span className={styles.value}>{bookingFee} kr</span>
+            </div>
+            <div className={styles.orderItem}>
+              <span className={styles.text}>Total:</span>
+              <span className={`${styles.value} ${styles.total}`}>{totalCost} kr</span>
             </div>
           </div>
         </div>

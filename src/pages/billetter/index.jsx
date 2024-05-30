@@ -56,15 +56,23 @@ function Booking() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (regularTicketCount + vipTicketCount === 0) {
+    const totalTickets = regularTicketCount + vipTicketCount;
+    const totalTentCapacity = tents.twoPerson * 2 + tents.threePerson * 3;
+
+    if (totalTickets === 0) {
       alert("Husk at vælge billet");
       return; 
     }
 
-    if (selectedSpot == 0) {
+    if (selectedSpot === "") {
       alert("Husk at vælge camping område");
       return; 
     } 
+
+    if (totalTentCapacity > 0 && totalTickets > totalTentCapacity) {
+      alert("Manglende telt-plads.");
+      return;
+    }
 
     if (selectedSpot) {
       try {
@@ -75,7 +83,7 @@ function Booking() {
           },
           body: JSON.stringify({
             area: selectedSpot,
-            amount: regularTicketCount + vipTicketCount,
+            amount: totalTickets,
           }),
         });
 
@@ -167,7 +175,7 @@ function Booking() {
           </div>
           <h2>Camping Muligheder</h2>
           <label className={styles.greenCampingBox}>
-           Grøn Camping (249,-) <input
+            Grøn Camping (249,-) <input
               type="checkbox"
               name="greenCamping"
               checked={greenCamping}
@@ -177,7 +185,6 @@ function Booking() {
 
           <h2>Telt (Inkl. Opsætning)</h2>
           <div className={styles.campingOptionsBox}>
-            
             <div className={styles.campingTelt}>
               <label>
                 <p>2 Personers Telt (299,-)</p>
