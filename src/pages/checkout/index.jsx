@@ -32,7 +32,7 @@ function Checkout() {
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push({
-      pathname: "/confirmation",
+      pathname: "/thanksbye",
       query: {
         regularTickets,
         vipTickets,
@@ -54,10 +54,9 @@ function Checkout() {
           <h1>Betalingsinformation</h1>
           <CcardFlip formData={formData} handleChange={handleChange} />
           <div className={styles.btnBox}>
-            <button className={styles.checkoutBtn} type="submit">Næste</button>
+            <button className={styles.checkoutBtn} type="submit">Køb</button>
           </div>
         </form>
-        <p>(Betalingen vil først gå igennem ved godkendelse af næste side)</p>
       </div>
     </main>
   );

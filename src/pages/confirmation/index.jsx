@@ -47,7 +47,7 @@ function Confirmation() {
 
   const handleProceed = async () => {
     if (!reservationId) {
-      alert("No reservation to confirm.");
+      alert("Fejl ved reservation.");
       return;
     }
 
@@ -64,12 +64,12 @@ function Confirmation() {
 
       if (response.ok) {
         console.log("Reservation confirmed");
-        router.push("/thanksbye");
+        router.push("/checkout");
       } else {
-        console.error("Failed to confirm reservation");
+        console.error("Failed reservation");
       }
     } catch (error) {
-      console.error("Error confirming reservation:", error);
+      console.error("Error reservation:", error);
     }
   };
 

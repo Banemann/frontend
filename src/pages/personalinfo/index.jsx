@@ -35,7 +35,7 @@ function PersonalInfo() {
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push({
-      pathname: "/checkout",
+      pathname: "/confirmation",
       query: {
         regularTickets,
         vipTickets,
@@ -48,7 +48,7 @@ function PersonalInfo() {
       }
     });
   };
-
+  
   return (
     <main className={styles.main}>
       <Header />
